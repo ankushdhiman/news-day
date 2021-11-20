@@ -20,7 +20,20 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      brand: {
+        DEFAULT: 'rgb(80, 212, 245)',
+        hover: 'rgb(106, 218, 247)',
+        light: 'rgba(80, 212, 245, 0.5)',
+      },
+      copy: {
+        DEFAULT: 'rgb(41, 42, 44)',
+        hover: 'rgb(57, 57, 57)',
+        light: 'rgb(41, 42, 44, 0.5)',
+      }
     },
+    fontFamily: {
+      'roboto': 'Roboto',
+    }
   },
   corePlugins: {
     fontFamily: false,

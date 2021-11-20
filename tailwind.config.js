@@ -29,7 +29,9 @@ module.exports = {
         DEFAULT: 'rgb(41, 42, 44)',
         hover: 'rgb(57, 57, 57)',
         light: 'rgb(41, 42, 44, 0.5)',
-      }
+      },
+      white: '#fff',
+      overlay: 'rgba(0, 0, 0, 0.2)',
     },
     fontFamily: {
       'roboto': 'Roboto',

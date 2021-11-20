@@ -1,0 +1,8 @@
+.nav-link {
+  @apply text-copy-hover text-xl;
+  transition: 0.3s color;
+
+  &:hover, &.active {
+    @apply text-copy;
+  }
+}

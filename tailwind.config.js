@@ -27,7 +27,7 @@ module.exports = {
       },
       copy: {
         DEFAULT: 'rgb(41, 42, 44)',
-        hover: 'rgb(57, 57, 57)',
+        hover: '#888',
         light: 'rgb(41, 42, 44, 0.5)',
       },
       white: '#fff',

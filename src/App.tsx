@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Button from './atoms/button';
 import NavLink from './atoms/nav-link';
+import Footer from './components/footer';
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           isActive
         />
       </div>
+      <Footer/>
     </BrowserRouter>
   );
 }

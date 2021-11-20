@@ -1,0 +1,10 @@
+.primary-button {
+    @apply shadow-md rounded text-white bg-brand hover:bg-brand-hover px-2 py-1;
+    transition: 0.3s background-color;
+}
+
+.secondary-button {
+    @apply shadow-md text-white bg-brand hover:bg-white hover:text-brand px-2 py-1;
+    @apply rounded border-2 border-brand;
+    transition: 0.3s background-color, 0.3s border-color;
+}

@@ -1,5 +1,20 @@
+import Button from './atoms/button';
+
 export default function App() {
   return (
-    <h1>Welcome to News Day</h1>
+    <>
+      <div className='p-2'>
+        <Button
+          className='primary-button'
+          label='Primary Button'
+        />
+      </div>
+      <div className='p-2'>
+        <Button
+          className='secondary-button'
+          label='Secondary Button'
+        />
+      </div>
+    </>
   );
 }

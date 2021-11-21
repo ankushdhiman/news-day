@@ -4,11 +4,12 @@ interface ButtonProps {
   label?: string;
   testid?: string;
   className?: string;
+  type?: 'submit' | 'reset' | 'button';
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function Button({ label, testid, ...attr }: ButtonProps) {
+export default function Button({ label, type = 'button', testid, ...attr }: ButtonProps) {
   return (
-    <button data-testid={testid} type='button' {...attr}>{label}</button>
+    <button type={type} data-testid={testid} {...attr}>{label}</button>
   );
 }

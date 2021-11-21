@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/home';
+import LoginPage from './pages/login';
 
 export default function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path='/login'>
-          <HomePage/>
+          <LoginPage/>
         </Route>
         <Route path='/dashboard'>
           <HomePage/>

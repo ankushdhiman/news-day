@@ -30,6 +30,7 @@ module.exports = {
         hover: '#888',
         light: 'rgb(41, 42, 44, 0.5)',
       },
+      alert: 'rgb(219, 44, 111)',
       white: '#fff',
       overlay: 'rgba(0, 0, 0, 0.2)',
     },

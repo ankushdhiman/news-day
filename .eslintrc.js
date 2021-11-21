@@ -50,6 +50,7 @@ module.exports = {
     'react/no-danger': 'off',
     'react/require-default-props': 'off',
     "react/jsx-no-bind": 'off',
+    "react/button-has-type": "off",
     "no-console": "off",
   },
 };

@@ -13,7 +13,7 @@ export default function Header() {
             <NavLink label='Dashboard' url='/dashboard'/>
           </nav>
         </div>
-        <LinkButton label='Login' className='secondary-button self-end' url='/logout'/>
+        <LinkButton label='Login' className='secondary-button' url='/login'/>
       </div>
     </header>
   );

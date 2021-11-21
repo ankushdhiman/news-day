@@ -1,0 +1,23 @@
+.text-box {
+  @apply flex flex-col relative pt-2;
+
+  input {
+    @apply px-1 py-0.5 text-copy bg-transparent;
+    @apply outline-none border-b-2 border-brand-light;
+    @apply hover:border-brand focus:border-brand;
+
+    transition: border-color 0.3s;
+  }
+
+  label {
+    @apply absolute text-brand;;
+    left: 10px;
+    bottom: 7px;
+    transition: transform 0.3s;
+
+    &.floating {
+      transform: translateY(-100%)
+    }
+  }
+}
+

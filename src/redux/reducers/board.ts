@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { Board, BoradNews } from '../../types';
+import { Board, BoardNews } from '../../types';
 
 export const boardApiSlice = createApi({
   reducerPath: 'boardsApi',
@@ -13,7 +13,7 @@ export const boardApiSlice = createApi({
       fetchBoards: build.query<Board[], void>({
         query: () => '/board',
       }),
-      fetchBoardNews: build.query<BoradNews, string>({
+      fetchBoardNews: build.query<BoardNews, string>({
         query: boardId => `/board/${boardId}/news`,
       }),
     };

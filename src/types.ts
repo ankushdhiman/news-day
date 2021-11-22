@@ -27,7 +27,7 @@ export interface News {
   status: NewsStatus;
 }
 
-export interface BoradNews {
+export interface BoardNews {
   draft: News[];
   published: News[];
   archives: News[];

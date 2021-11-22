@@ -9,7 +9,7 @@ export interface User {
   email: string;
 }
 
-export interface Boards {
+export interface Board {
   id: string;
   name: string;
 }

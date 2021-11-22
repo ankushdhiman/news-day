@@ -17,8 +17,14 @@ const summarySlice = createSlice({
         ...action.payload,
       };
     },
+    clearUser() {
+      return {
+        username: '',
+        email: '',
+      };
+    },
   },
 });
 
-export const { addUserInfo } = summarySlice.actions;
+export const { addUserInfo, clearUser } = summarySlice.actions;
 export default summarySlice.reducer;

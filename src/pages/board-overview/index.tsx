@@ -8,12 +8,12 @@ import { BoardNews, News } from '../../types';
 export default function BoardsOverviewPage() {
   const { boardId } = useParams<{ boardId: string; }>();
   const { data: boardsNews = {} as BoardNews, isError } = useFetchBoardNewsQuery(boardId);
-  const { draft, published, archives } = boardsNews;
+  const { drafts, published, archives } = boardsNews;
 
   return (
     <MainTemplate>
       {
-        !!draft && !!draft.length
+        !!drafts && !!drafts.length
         && (
           <>
             <h2 className='text-4xl font-bold text-center'>
@@ -21,7 +21,7 @@ export default function BoardsOverviewPage() {
             </h2>
             <div className='p-2 flex items-center'>
               {
-                draft.map((news: News) => (
+                drafts.map((news: News) => (
                   <NewsCard key={news.id} className='mr-2 mb-2' {...news}/>
                 ))
               }
@@ -64,7 +64,7 @@ export default function BoardsOverviewPage() {
         )
       }
       {
-        !(draft && draft.length)
+        !(drafts && drafts.length)
           && !(!!published && !!published.length)
           && !(!!archives && !!archives.length)
           && !isError

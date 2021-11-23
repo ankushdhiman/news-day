@@ -39,7 +39,7 @@ export interface News {
 }
 
 export interface BoardNews {
-  draft: News[];
+  drafts: News[];
   published: News[];
   archives: News[];
 }

@@ -3,13 +3,14 @@ import { News } from '../../types';
 
 interface NewsCardProps {
   className?: string;
+  key?: string;
 }
 
 export default function NewsCard({
-  author, title, description, imageURL, className, id,
+  author, title, description, imageURL, className, id, key,
 }: NewsCardProps & News) {
   return (
-    <div className={`${className || ''} flex flex-col w-[300px] shadow-md`}>
+    <div key={key} className={`${className || ''} flex flex-col w-[300px] shadow-md`}>
       <img className='w-full mb-1.5' src={imageURL} alt={title}/>
       <div className='p-2 text-center'>
         <h3 className='mb-1.5 text-bold text-2xl text-brand text-center'>{title}</h3>

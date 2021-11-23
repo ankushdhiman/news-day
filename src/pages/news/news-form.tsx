@@ -9,7 +9,6 @@ import { NewsFormItems, MutationProgressProps } from '../../types';
 
 export default function NewsForm(props: FormikProps<NewsFormItems> & MutationProgressProps) {
   const { values, errors, handleSubmit, handleChange, mutationLoading, mutationhasError } = props;
-  console.log(values);
 
   return (
     <form className='flex flex-col items-center p-2' onSubmit={handleSubmit}>

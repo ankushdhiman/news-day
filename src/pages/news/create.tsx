@@ -21,7 +21,6 @@ export default function NewsCreate() {
     },
     validate: NewsValidations,
     onSubmit: (values: NewsFormItems) => {
-      console.log(user);
       const news: News = {
         id: `${user.email}-${Date.now()}`,
         createdAt: new Date().toISOString(),

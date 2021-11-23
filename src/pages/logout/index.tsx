@@ -15,7 +15,7 @@ export default function Login() {
   }
   function handleLogout() {
     dispatch(clearUser());
-    sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('user');
     history.replace('/home');
   }
 

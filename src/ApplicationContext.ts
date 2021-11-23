@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 export const ApplicationContextConfig = {
-  isLoggedIn: () => !!sessionStorage.getItem('isLoggedIn'),
+  isLoggedIn: () => !!sessionStorage.getItem('user'),
 };
 
 const ApplicationContext = createContext(ApplicationContextConfig);

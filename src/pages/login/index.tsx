@@ -11,12 +11,16 @@ import { addUserInfo } from '../../redux/reducers/user';
 import { getQueryParams } from '../../utils/url-helper';
 import ApplicationContext from '../../ApplicationContext';
 
+interface LoginPageParams {
+  redirectTo: string;
+}
+
 export default function Login() {
   const { isLoggedIn } = useContext(ApplicationContext);
   const dispatch = useAppDispatch();
   const history = useHistory();
   const { search } = useLocation();
-  const { redirectTo } = getQueryParams<{ redirectTo: string; }>(search);
+  const { redirectTo } = getQueryParams<LoginPageParams>(search);
 
   useEffect(() => {
     if (isLoggedIn()) {
@@ -32,13 +36,12 @@ export default function Login() {
     },
     validate: LoginFormValidations,
     onSubmit: (values: LoginFormItems) => {
-      dispatch(addUserInfo(
-        {
-          username: values.username,
-          email: values.email,
-        },
-      ));
-      sessionStorage.setItem('isLoggedIn', 'true');
+      const userInfo = {
+        username: values.username,
+        email: values.email,
+      };
+      dispatch(addUserInfo(userInfo));
+      sessionStorage.setItem('user', JSON.stringify(userInfo));
       history.push(redirectTo || '/');
     },
   });

@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { User } from '../../types';
 
-const initialState: User = {
+const userInfoFromSession = sessionStorage.getItem('user');
+const initialState: User = userInfoFromSession ? JSON.parse(userInfoFromSession) : {
   username: '',
   email: '',
 };

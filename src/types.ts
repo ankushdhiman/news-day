@@ -4,6 +4,17 @@ export interface LoginFormItems {
   password: string;
 }
 
+export interface NewsFormItems {
+  title: string;
+  description: string;
+  imageURL: string;
+}
+
+export interface MutationProgressProps {
+  mutationLoading: boolean;
+  mutationhasError: boolean;
+}
+
 export interface User {
   username: string;
   email: string;

@@ -43,4 +43,4 @@ export const newsApiSlice = createApi({
   },
 });
 
-export const { useFetchNewsQuery } = newsApiSlice;
+export const { useFetchNewsQuery, useAddNewsMutation } = newsApiSlice;

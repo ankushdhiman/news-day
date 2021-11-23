@@ -10,7 +10,7 @@ import { NewsFormItems, News } from '../../types';
 import { useFetchNewsQuery, useUpdateNewsMutation } from '../../redux/reducers/news';
 
 function NewsUpdate({ news }: { news: News; }) {
-  const [updateNews] = useUpdateNewsMutation();
+  const [updateNews, { isError, isLoading }] = useUpdateNewsMutation();
 
   const formik = useFormik<NewsFormItems>({
     enableReinitialize: true,
@@ -28,8 +28,8 @@ function NewsUpdate({ news }: { news: News; }) {
   return (
     <MainTemplate>
       <NewsForm
-        mutationLoading={false}
-        mutationhasError={false}
+        mutationLoading={isLoading}
+        mutationhasError={isError}
         {...formik}
       />
     </MainTemplate>

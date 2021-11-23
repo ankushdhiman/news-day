@@ -8,7 +8,7 @@ import { NewsFormItems, News } from '../../types';
 import { useAppSelector } from '../../redux/hooks';
 import { useAddNewsMutation } from '../../redux/reducers/news';
 
-export default function Login() {
+export default function NewsCreate() {
   const { boardId } = useParams<{ boardId: string; }>();
   const user = useAppSelector(state => state.user);
   const [addNews, { isError, isLoading }] = useAddNewsMutation();
@@ -21,6 +21,7 @@ export default function Login() {
     },
     validate: NewsValidations,
     onSubmit: (values: NewsFormItems) => {
+      console.log(user);
       const news: News = {
         id: `${user.email}-${Date.now()}`,
         createdAt: new Date().toISOString(),
@@ -28,7 +29,7 @@ export default function Login() {
         status: 'draft',
         boardId,
         ...values,
-      }
+      };
       addNews(news);
     },
   });

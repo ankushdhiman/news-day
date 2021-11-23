@@ -3,11 +3,13 @@ import { FormikProps } from 'formik';
 import Button from '../../atoms/button';
 import TextInput from '../../atoms/text-input';
 import TextArea from '../../atoms/text-area';
+import Spinner from '../../atoms/spinner';
 
 import { NewsFormItems, MutationProgressProps } from '../../types';
 
 export default function NewsForm(props: FormikProps<NewsFormItems> & MutationProgressProps) {
   const { values, errors, handleSubmit, handleChange, mutationLoading, mutationhasError } = props;
+  console.log(values);
 
   return (
     <form className='flex flex-col items-center p-2' onSubmit={handleSubmit}>
@@ -48,6 +50,7 @@ export default function NewsForm(props: FormikProps<NewsFormItems> & MutationPro
           onChange={handleChange}
           name='description'
           value={values.description}
+          rows={5}
         />
         {
           !!errors.description && (
@@ -55,13 +58,28 @@ export default function NewsForm(props: FormikProps<NewsFormItems> & MutationPro
           )
         }
       </div>
-      <div className='w-full max-w-[400px]'>
-        <Button
-          className='secondary-button w-full'
-          label='Submit'
-          type='submit'
-        />
-      </div>
+      {
+        mutationLoading ? (
+          <div className='flex items-center justify-center p-2'>
+            <Spinner/>
+          </div>
+        ) : (
+          <div className='w-full max-w-[400px]'>
+            <Button
+              className='secondary-button w-full'
+              label='Submit'
+              type='submit'
+            />
+            {
+              mutationhasError && (
+                <small className='text-alert text-center text-sm'>
+                  Submission Failed. Please try again.
+                </small>
+              )
+            }
+          </div>
+        )
+      }
     </form>
   );
 }

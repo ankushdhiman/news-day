@@ -3,21 +3,28 @@ import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import LogoutPage from './pages/logout';
 import BoardsPage from './pages/boards';
-import BoardsOverviewPage from './pages/board-overview';
+import BoardOverview from './pages/board-overview';
+import NewsCreate from './pages/news/create';
+import NewsUpdate from './pages/news/update';
 import Authorize from './components/Authorize';
 
 export default function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/board/:boardId'>
-          <Authorize>
-            <BoardsOverviewPage/>
-          </Authorize>
-        </Route>
         <Route path='/news/:newsId'>
           <Authorize>
-            <BoardsPage/>
+            <NewsUpdate/>
+          </Authorize>
+        </Route>
+        <Route path='/board/:boardId/create-news'>
+          <Authorize>
+            <NewsCreate/>
+          </Authorize>
+        </Route>
+        <Route path='/board/:boardId'>
+          <Authorize>
+            <BoardOverview/>
           </Authorize>
         </Route>
         <Route path='/boards'>

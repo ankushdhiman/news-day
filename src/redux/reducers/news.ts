@@ -48,7 +48,7 @@ export const newsApiSlice = createApi({
       updateNewsStatus: build.mutation<string, Partial<News>>({
         query: ({ id, status }) => ({
           url: `/news${id}/${status}`,
-          method: 'DELETE',
+          method: 'POST',
         }),
         invalidatesTags: ['News'],
       }),

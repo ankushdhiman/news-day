@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { useFormik } from 'formik';
 import MainTemplate from '../../templates/main';
 import NewsForm from './news-form';
@@ -11,7 +11,7 @@ import { useAddNewsMutation } from '../../redux/reducers/news';
 export default function NewsCreate() {
   const { boardId } = useParams<{ boardId: string; }>();
   const user = useAppSelector(state => state.user);
-  const [addNews, { isError, isLoading }] = useAddNewsMutation();
+  const [addNews, { isError, isLoading, isSuccess }] = useAddNewsMutation();
 
   const formik = useFormik<NewsFormItems>({
     initialValues: {
@@ -40,6 +40,10 @@ export default function NewsCreate() {
         mutationhasError={isError}
         {...formik}
       />
+      {
+        isSuccess
+          && <Redirect to={`/board/${boardId}`}/>
+      }
     </MainTemplate>
   );
 }

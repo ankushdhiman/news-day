@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { useFormik } from 'formik';
 import MainTemplate from '../../templates/main';
 import NewsForm from './news-form';
@@ -9,8 +9,12 @@ import { NewsFormItems, News } from '../../types';
 // import { useAppSelector } from '../../redux/hooks';
 import { useFetchNewsQuery, useUpdateNewsMutation } from '../../redux/reducers/news';
 
-function NewsUpdate({ news }: { news: News; }) {
-  const [updateNews, { isError, isLoading }] = useUpdateNewsMutation();
+interface NewsUpdateProps {
+  news: News;
+}
+
+function NewsUpdate({ news }: NewsUpdateProps) {
+  const [updateNews, { isError, isLoading, isSuccess }] = useUpdateNewsMutation();
 
   const formik = useFormik<NewsFormItems>({
     enableReinitialize: true,
@@ -32,12 +36,21 @@ function NewsUpdate({ news }: { news: News; }) {
         mutationhasError={isError}
         {...formik}
       />
+      {
+        isSuccess
+          && <Redirect to={`/board/${news.boardId}`}/>
+      }
     </MainTemplate>
   );
 }
 
+interface NewsUpdatePageParams {
+  newsId: string;
+  boardId: string;
+}
+
 export default function NewsUpdatePage() {
-  const { newsId } = useParams<{ newsId: string; }>();
+  const { newsId } = useParams<NewsUpdatePageParams>();
   const { data: news = {} as News, isFetching } = useFetchNewsQuery(newsId);
 
   return (
